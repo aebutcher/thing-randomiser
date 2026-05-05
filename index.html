@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f5f4f0" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#1a1a18" media="(prefers-color-scheme: dark)" />
+  <meta name="description" content="Pick a random task from your personal list." />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Randomizer" />
+  <title>Task Randomizer</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.json" />
+</head>
+<body>
+
+<h1 class="sr-only">Task Randomizer</h1>
+
+<div class="app">
+
+  <!-- ── Home screen ───────────────────────── -->
+  <div class="screen active" id="homeScreen">
+
+    <div class="home-body">
+      <p class="app-title">What should I do?</p>
+
+      <select class="pick-filter" id="pickFilter" aria-label="Filter by category">
+        <option value="">Any category</option>
+        <option value="work">Work</option>
+        <option value="home">Home</option>
+        <option value="health">Health</option>
+        <option value="other">Other</option>
+        <option value="__none">No category</option>
+      </select>
+
+      <button class="pick-btn" id="pickBtn">Pick a random task</button>
+
+      <div class="result-card" id="resultCard" aria-live="polite">
+        <p class="result-label">your task</p>
+        <p class="result-task" id="resultTask"></p>
+        <p class="result-cat" id="resultCat"></p>
+      </div>
+    </div>
+
+    <div class="home-footer">
+      <button class="tasks-link" id="goTasks">Manage tasks</button>
+    </div>
+
+  </div>
+
+  <!-- ── Tasks screen ──────────────────────── -->
+  <div class="screen" id="tasksScreen">
+
+    <div class="tasks-header">
+      <button class="back-btn" id="goHome" aria-label="Back to home">←</button>
+      <h2>Tasks</h2>
+      <span class="task-count" id="taskCount"></span>
+    </div>
+
+    <div class="add-row">
+      <input
+        type="text"
+        id="taskInput"
+        placeholder="New task…"
+        maxlength="60"
+        aria-label="New task name"
+      />
+      <select id="catSelect" aria-label="Category">
+        <option value="" selected>No category</option>
+        <option value="work">Work</option>
+        <option value="home">Home</option>
+        <option value="health">Health</option>
+        <option value="other">Other</option>
+      </select>
+      <button class="add-btn" id="addBtn" aria-label="Add task">+</button>
+    </div>
+
+    <div class="filter-row" id="filterRow" role="group" aria-label="Filter tasks">
+      <button class="cat-btn active" data-cat="all">All</button>
+      <button class="cat-btn" data-cat="">None</button>
+      <button class="cat-btn" data-cat="work">Work</button>
+      <button class="cat-btn" data-cat="home">Home</button>
+      <button class="cat-btn" data-cat="health">Health</button>
+      <button class="cat-btn" data-cat="other">Other</button>
+    </div>
+
+    <div class="task-list" id="taskList" aria-label="Task list"></div>
+
+  </div>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
