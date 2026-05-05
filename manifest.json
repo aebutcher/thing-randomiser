@@ -1,8 +1,9 @@
 {
-  "name": "Task Randomizer",
-  "short_name": "Randomizer",
+  "name": "Task Randomiser",
+  "short_name": "Randomiser",
   "description": "Pick a random task from your personal list.",
-  "start_url": "/",
+  "start_url": "/task-randomiser/",
+  "scope": "/task-randomiser/",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#f5f4f0",
